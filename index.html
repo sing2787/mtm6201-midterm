@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nutritionist — Home</title>
+  <meta name="description" content="Personalized nutrition coaching — Transform your health with personalized plans and support." />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Structured data (JSON-LD) for basic organization info -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Nutritionist",
+    "url": ".",
+    "logo": "images/home-large.jpg",
+    "contactPoint": [{"@type":"ContactPoint","telephone":"+91 91813 23 2309","contactType":"customer support"}]
+  }
+  </script>
+</head>
+<body>
+  <!-- Skip link for keyboard users -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Header / Navigation -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="brand" aria-hidden="false">
+        <a href="index.html">Nutritionist</a>
+      </div>
+
+      <nav role="navigation" aria-label="Main navigation">
+        <button id="nav-toggle" aria-controls="primary-nav" aria-expanded="false">Menu</button>
+        <ul id="primary-nav" class="nav-list">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="process.html">Process</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container" role="main">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-content">
+        <h1 id="hero-heading">Transform Your Health with <span class="highlight">Personalized Nutrition Coaching</span></h1>
+        <p class="lead">Our certified nutritionists create custom plans and support you every step of the way.</p>
+        <div class="hero-ctas">
+          <a class="btn primary" href="#plans">Get Started Today</a>
+          <a class="btn ghost" href="#demo">Book a Demo</a>
+        </div>
+        <p class="stat">430+ Happy Customers</p>
+      </div>
+
+      <!-- Responsive image: two sizes provided via srcset -->
+      <figure class="hero-image" aria-hidden="true">
+        <img 
+          src="images/home-small.jpg" 
+          srcset="images/home-small.jpg 600w, images/home-large.jpg 1200w"
+          sizes="(max-width: 768px) 100vw, 50vw"
+          alt="Smiling nutrition coach holding a bowl of fresh salad" />
+      </figure>
+    </section>
+
+    <!-- Features grid -->
+    <section id="features" class="features" aria-labelledby="features-heading">
+      <h2 id="features-heading">Features</h2>
+      <div class="grid features-grid">
+        <article class="feature-card" aria-labelledby="f1">
+          <h3 id="f1">Personalized Nutrition Plans</h3>
+          <p>Tailored plans based on your lifestyle, preferences, and health goals.</p>
+        </article>
+        <article class="feature-card" aria-labelledby="f2">
+          <h3 id="f2">Guidance from Certified Nutritionists</h3>
+          <p>Expert support and ongoing coaching from certified professionals.</p>
+        </article>
+        <article class="feature-card" aria-labelledby="f3">
+          <h3 id="f3">Food Tracking & Analysis</h3>
+          <p>Track meals and get actionable feedback from our tools.</p>
+        </article>
+        <article class="feature-card" aria-labelledby="f4">
+          <h3 id="f4">Meal Planning & Recipes</h3>
+          <p>Curated recipes and weekly plans that match your program.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Pricing teaser -->
+    <section id="plans" class="pricing" aria-labelledby="pricing-heading">
+      <h2 id="pricing-heading">Our Pricing</h2>
+      <div class="grid pricing-grid">
+        <div class="price-card" aria-hidden="false">
+          <h3>Basic</h3>
+          <p class="price">$49 <span>/month</span></p>
+          <p>Personalized plan and app access.</p>
+          <a class="btn" href="#">Choose Plan</a>
+        </div>
+        <div class="price-card featured" aria-hidden="false">
+          <h3>Premium</h3>
+          <p class="price">$79 <span>/month</span></p>
+          <p>Video consultations + priority support.</p>
+          <a class="btn primary" href="#">Choose Plan</a>
+        </div>
+        <div class="price-card" aria-hidden="false">
+          <h3>Ultimate</h3>
+          <p class="price">$99 <span>/month</span></p>
+          <p>24/7 chat + workshops.</p>
+          <a class="btn" href="#">Choose Plan</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog teasers (short) -->
+    <section class="blog" aria-labelledby="blog-heading">
+      <h2 id="blog-heading">Our Blogs</h2>
+      <ul class="blog-list">
+        <li><strong>The Benefits of Hydration for Weight Loss</strong> — Emily Johnson · 23 May 2023</li>
+        <li><strong>Understanding Macronutrients</strong> — Mark Wilson · 23 May 2023</li>
+        <li><strong>Mindful Eating</strong> — Sarah Thompson · 23 May 2023</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div>hello@squareup.com · +91 91813 23 2309 · Somewhere in the World</div>
+      <div>© 2023 Nutritionist. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Minimal JS for mobile nav toggle — progressive enhancement & accessible -->
+  <script>
+    const navToggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('primary-nav');
+    navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!expanded));
+      nav.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
