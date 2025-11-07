@@ -1,0 +1,101 @@
+/* styles.css
+   Main stylesheet for mtm6201-midterm.
+   Comments explain layout choices and accessibility considerations.
+*/
+
+/* ---------- Reset-ish ---------- */
+* { box-sizing: border-box; }
+html,body { margin:0; padding:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:#222; background:#fff; line-height:1.45; }
+.container { max-width:1100px; margin:0 auto; padding:1rem; }
+
+/* ---------- Utility ---------- */
+.visually-hidden { position: absolute !important; height: 1px; width: 1px; overflow: hidden; clip: rect(1px,1px,1px,1px); white-space: nowrap; }
+.skip-link { position: absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
+.skip-link:focus { left:1rem; top:1rem; width:auto; height:auto; background:#000; color:#fff; padding:.5rem .75rem; z-index:9999; border-radius:4px; }
+
+/* ---------- Header / Nav ---------- */
+.site-header { background: linear-gradient(90deg,#f7f8fb,#fff); border-bottom:1px solid #eee; position:sticky; top:0; z-index:50; }
+.header-inner { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.75rem 0; }
+.brand a { font-weight:700; font-size:1.15rem; color:#0a4b3a; text-decoration:none; }
+.nav-list { list-style:none; display:flex; gap:.5rem; margin:0; padding:0; align-items:center; }
+.nav-list a { text-decoration:none; color:#334; padding:.45rem .6rem; border-radius:6px }
+.nav-list a:hover, .nav-list a:focus { background:#f0f8f2; outline: none; box-shadow: 0 0 0 3px rgba(10,75,58,0.06); }
+
+/* Mobile nav toggle */
+#nav-toggle { display:none; background:transparent; border:1px solid transparent; padding:.4rem .6rem; border-radius:6px; cursor:pointer; }
+.nav-list.open { display:block; }
+
+/* ---------- Hero ---------- */
+.hero { display:flex; gap:2rem; align-items:center; padding:2rem 0; }
+.hero-content { flex:1; }
+.hero-image { flex:1; display:flex; align-items:center; justify-content:center; }
+.hero-image img { width:100%; height:auto; border-radius:12px; box-shadow: 0 6px 18px rgba(17,17,17,0.06); transform-origin:center; transition: transform .35s ease; }
+
+/* subtle hover transition on hero image (animation property not used here; uses transition) */
+.hero-image img:hover { transform: translateY(-6px) scale(1.01); }
+
+/* Highlight text */
+.highlight { color:#0a7b52; background: linear-gradient(transparent 65%, rgba(10,123,82,0.08) 65%); padding:0 0.2rem; border-radius:3px; }
+
+/* Buttons */
+.btn { display:inline-block; text-decoration:none; padding:.6rem .9rem; border-radius:8px; border:1px solid transparent; font-weight:600; background:#fff; color:#0a4b3a; box-shadow: none; transition: transform .18s ease, box-shadow .18s ease; }
+.btn:hover, .btn:focus { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(10,75,58,0.08); }
+.btn.primary { background: #0a7b52; color:#fff; }
+.btn.ghost { background:transparent; border:1px solid #0a7b52; color:#0a7b52; }
+
+/* Stat text */
+.stat { margin-top:1rem; font-weight:600; color:#0a7b52; }
+
+/* ---------- Features grid ---------- */
+.features-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap:1rem; margin:1rem 0 2rem; }
+.feature-card { background:#fff; padding:1rem; border-radius:10px; border:1px solid #f1f3f2; }
+
+/* ---------- Pricing grid ---------- */
+.pricing-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:1rem; margin:1rem 0 2rem; }
+.price-card { padding:1rem; border-radius:10px; border:1px solid #eee; text-align:center; }
+.price-card.featured { border:2px solid #0a7b52; transform: translateY(-6px); box-shadow: 0 10px 30px rgba(10,123,82,0.06); }
+
+/* price typography */
+.price { font-size:1.35rem; font-weight:700; margin: .4rem 0; }
+
+/* ---------- Team grid ---------- */
+.team-members { display:grid; grid-template-columns: repeat(4, 1fr); gap:1rem; margin:1rem 0 2rem; }
+.person-card { background:#fff; border-radius:10px; padding:1rem; border:1px solid #f1f3f2; text-align:center; transition: transform .28s ease; }
+.person-card img { width:100%; height:auto; border-radius:8px; object-fit:cover; margin-bottom:.6rem; }
+
+/* person card hover uses CSS animation for entrance */
+@keyframes floatUp {
+  from { transform: translateY(8px); opacity:0; }
+  to   { transform: translateY(0); opacity:1; }
+}
+.person-card { animation: floatUp 650ms ease both; }
+
+/* ---------- Process steps ---------- */
+.process-list { margin:1rem 0; padding:0 0 2rem; }
+.process-list li { margin:1rem 0; padding:1rem; border-left:4px solid #e8efe8; background:#fff; border-radius:8px; }
+.process-list h3 { margin:0 0 .25rem; color:#0a4b3a; }
+
+/* ---------- Blog list ---------- */
+.blog-list { list-style:none; padding:0; margin:0 0 2rem; }
+
+/* ---------- Footer ---------- */
+.site-footer { border-top:1px solid #eee; padding:1.2rem 0; color:#666; font-size:.9rem; }
+
+/* ---------- Responsive: simple breakpoints using flex/grid ---------- */
+@media (max-width: 900px) {
+  .hero { flex-direction:column-reverse; }
+  .features-grid { grid-template-columns: 1fr 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .team-members { grid-template-columns: repeat(2, 1fr); }
+  .nav-list { display:none; position:absolute; right:1rem; top:64px; background:#fff; border:1px solid #eee; padding:1rem; border-radius:8px; }
+  #nav-toggle { display:inline-block; }
+}
+
+@media (max-width: 600px) {
+  .features-grid { grid-template-columns: 1fr; }
+  .team-members { grid-template-columns: 1fr; }
+  .hero-content h1 { font-size:1.25rem; }
+}
+
+/* ---------- Accessibility colors and contrast (ensured readable) ---------- */
+/* Main brand color #0a7b52 used with white text for contrast; fallback to dark text on light backgrounds. */
