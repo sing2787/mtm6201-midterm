@@ -1,7 +1,6 @@
 /* ===========================================================
-   styles.css  (Nutritionist Website — Final Version)
-   Description: Responsive styling for 3-page Nutritionist website
-   Based on Figma mockup by Praha (https://www.figma.com/community/file/1295130769939712364)
+   styles.css  (Nutritionist Website — Process page version)
+   Badge removed (no green circular step numbers)
    =========================================================== */
 
 /* ---------- Root Variables ---------- */
@@ -127,7 +126,7 @@ body {
   border-radius: 8px;
 }
 
-/* ---------- Hero Section ---------- */
+/* ---------- Hero Section (kept in CSS for whole site) ---------- */
 .hero {
   display: grid;
   grid-template-columns: 1fr 480px;
@@ -262,9 +261,10 @@ body {
   to { transform: translateY(0); opacity: 1; }
 }
 
-/* ---------- Process Page ---------- */
+/* ---------- Process Page (updated) ---------- */
+/* Badge removed — plain step cards without circular numbers */
 .process-list {
-  list-style: none;
+  list-style: none; /* remove browser default markers */
   margin: 0;
   padding: 0;
   display: grid;
@@ -273,39 +273,23 @@ body {
 }
 .process-list li {
   position: relative;
-  padding-left: 4.25rem; /* space for the badge */
+  padding: 1rem 1.1rem; /* standard card padding, no left offset for badge */
   background: var(--card);
   border-radius: 12px;
   border-left: 6px solid var(--accent-100);
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  padding-right: 1.1rem;
   box-shadow: var(--shadow-1);
-}
-.process-list li::before {
-  content: attr(data-step);
-  position: absolute;
-  left: 1rem;
-  top: 1rem;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: linear-gradient(180deg, var(--accent), var(--accent-600));
-  color: #fff;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-1);
-  font-size: .95rem;
-  line-height: 1;
 }
 .process-list li h3 {
-  margin: 0 0 .25rem 0;
+  margin: 0 0 .35rem 0;
   color: var(--accent-900);
   font-weight: 700;
+  font-size: 1.05rem;
 }
-.process-list li p { margin: 0; color: var(--muted); }
+.process-list li p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .98rem;
+}
 
 /* ---------- Blog List ---------- */
 .blog-list {
@@ -359,10 +343,6 @@ body {
     box-shadow: var(--shadow-2);
   }
   .nav-list.open { display: flex; flex-direction: column; gap: .6rem; }
-  .process-list li { padding-left: 3.75rem; }
-  .process-list li::before {
-    width: 44px; height: 44px; left: .85rem; top: .85rem;
-  }
 }
 
 @media (max-width: 420px) {
