@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nutritionist — How it Works</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand"><a href="index.html">Nutritionist</a></div>
+      <nav aria-label="Main navigation">
+        <button id="nav-toggle-process" aria-controls="primary-nav-process" aria-expanded="false">Menu</button>
+        <ul id="primary-nav-process" class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="process.html" aria-current="page">Process</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="process-intro" aria-labelledby="process-heading">
+      <h1 id="process-heading">Your Journey to Health and Wellness</h1>
+      <p>Our "How it Works" process is designed to guide you through each step of your journey with clarity and support.</p>
+      <a class="btn primary" href="#steps">Join Us Now</a>
+    </section>
+
+    <section id="steps" class="steps" aria-labelledby="steps-heading">
+      <h2 id="steps-heading">How It Works</h2>
+      <ol class="process-list">
+        <li>
+          <h3>01 — Initial Consultation</h3>
+          <p>We schedule an initial consultation to discuss health history, goals and dietary needs.</p>
+        </li>
+        <li>
+          <h3>02 — Assessing Your Needs</h3>
+          <p>Our team performs a detailed assessment and prepares a customized strategy.</p>
+        </li>
+        <li>
+          <h3>03 — Personalized Nutrition Plan</h3>
+          <p>A tailored plan with meal timing, portions and recommendations is prepared.</p>
+        </li>
+        <li>
+          <h3>04 — Meal Planning & Recipes</h3>
+          <p>We provide recipes and weekly plans aligned to your preferences.</p>
+        </li>
+        <li>
+          <h3>05 — Ongoing Support</h3>
+          <p>Regular check-ins and support keep you on track.</p>
+        </li>
+        <li>
+          <h3>06 — Progress Tracking</h3>
+          <p>Use our tools to log progress and refine the plan as needed.</p>
+        </li>
+        <li>
+          <h3>07 — Regular Check-ins</h3>
+          <p>We review progress and adjust the plan periodically.</p>
+        </li>
+        <li>
+          <h3>08 — Education & Resources</h3>
+          <p>Access articles, workshops and videos to learn more about nutrition.</p>
+        </li>
+        <li>
+          <h3>09 — Fine-Tuning & Adjustments</h3>
+          <p>As needs evolve, we refine your program to match new goals.</p>
+        </li>
+        <li>
+          <h3>10 — Sustainable Lifestyle Habits</h3>
+          <p>We focus on lifelong, sustainable habits for lasting change.</p>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>hello@squareup.com · +91 91813 23 2309</div>
+      <div>© 2023 Nutritionist. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggleProcess = document.getElementById('nav-toggle-process');
+    const navProcess = document.getElementById('primary-nav-process');
+    navToggleProcess.addEventListener('click', () => {
+      const expanded = navToggleProcess.getAttribute('aria-expanded') === 'true';
+      navToggleProcess.setAttribute('aria-expanded', String(!expanded));
+      navProcess.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
